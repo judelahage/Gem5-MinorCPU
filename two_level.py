@@ -25,6 +25,7 @@ default_binary = os.path.join(
 parser = argparse.ArgumentParser()
 parser.add_argument("binary", nargs="?", default=default_binary)
 parser.add_argument("--cpu-type", choices=("minor", "timing"), default="minor")
+parser.add_argument("--freq", default="1GHz", help="System clock frequency")
 parser.add_argument("--l1i_size")
 parser.add_argument("--l1d_size")
 parser.add_argument("--l2_size")
@@ -36,7 +37,7 @@ system = System()
 
 # Set the clock frequency of the system (and all of its children)
 system.clk_domain = SrcClockDomain()
-system.clk_domain.clock = "1GHz"
+system.clk_domain.clock = args.freq
 system.clk_domain.voltage_domain = VoltageDomain()
 
 # Set up the system
