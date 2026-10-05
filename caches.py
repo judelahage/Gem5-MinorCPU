@@ -1,3 +1,4 @@
+# pyrefly: ignore [missing-import]
 from m5.objects import Cache
 
 class L1Cache(Cache):
